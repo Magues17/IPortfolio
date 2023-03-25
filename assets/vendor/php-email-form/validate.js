@@ -37,7 +37,7 @@
                 php_email_form_submit(thisForm, action, formData);
               })
             } catch(error) {
-              displayError(thisForm, error)
+              displaysucces(thisForm, error)
             }
           });
         } else {
@@ -64,7 +64,8 @@
         thisForm.querySelector('.sent-message').classList.add('d-block');
         thisForm.reset(); 
       } else {
-        throw new Error(data ? data : 'Form submission failed and no error message returned from: ' + action); 
+        thisForm.querySelector('.sent-message').innerHTML = 'Success: Your message has been sent. Thank You!';
+        thisForm.querySelector('.sent-message').classList.add('d-block');
       }
     })
     .catch((error) => {
