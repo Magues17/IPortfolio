@@ -62,16 +62,18 @@
       thisForm.querySelector('.loading').classList.remove('d-block');
       if (data.trim() == 'OK') {
         thisForm.querySelector('.sent-message').classList.add('d-block');
-        thisForm.reset(); 
+        thisForm.reset(); // Clear the form
       } else {
         thisForm.querySelector('.sent-message').innerHTML = 'Success: Your message has been sent. Thank You!';
         thisForm.querySelector('.sent-message').classList.add('d-block');
+        
       }
     })
     .catch((error) => {
       displayError(thisForm, error);
     });
   }
+  
 
   function displayError(thisForm, error) {
     thisForm.querySelector('.loading').classList.remove('d-block');
@@ -80,3 +82,7 @@
   }
 
 })();
+
+function clearForm() {
+  document.getElementById("contact-form").reset();
+}
